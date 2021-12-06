@@ -1,3 +1,4 @@
+using System;
 using ComplexAlgebra;
 
 namespace Calculus
@@ -27,6 +28,29 @@ namespace Calculus
         public const char OperationPlus = '+';
         public const char OperationMinus = '-';
 
-        // TODO fill this class
+        public Complex Value { get; set; }
+        public Optional<char> Operation { get; set; }
+
+        public Calculator()
+        {
+            Value = null;
+            Operation = null;
+        }
+
+
+        public Complex ComputeResult()
+        {
+            return null;
+        }
+        public void Reset()
+        {
+            
+        }
+
+        public string ToString()
+        {
+            return Value + " " + Operation;
+        }
+        
     }
 }
