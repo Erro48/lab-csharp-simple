@@ -28,8 +28,16 @@ namespace Calculus
         public const char OperationPlus = '+';
         public const char OperationMinus = '-';
 
+        private Complex total;
+
         public Complex Value { get; set; }
-        public Optional<char> Operation { get; set; }
+        public char? Operation
+        {
+            get => Operation;
+            set => {
+                total = Value;
+            }
+        }
 
         public Calculator()
         {
@@ -49,7 +57,7 @@ namespace Calculus
 
         public string ToString()
         {
-            return Value + " " + Operation;
+            return Value?.ToString() + " " + Operation?.ToString();
         }
         
     }
