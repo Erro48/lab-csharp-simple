@@ -5,3 +5,7 @@ riderModule.iml
 /_ReSharper.Caches/
 *.user
 .idea/
+.vs/
+*/Properties/
+Backup/
+UpgradeLog.htm
