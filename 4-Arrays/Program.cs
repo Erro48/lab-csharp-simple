@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using ComplexAlgebra;
 
@@ -19,7 +20,18 @@ namespace Arrays
         /// <seealso cref="Examples.Max"/>
         public static Complex MaxModulus(Complex[] array)
         {
-            return null; // TODO: remove this line
+            var max = double.MinValue;
+            var index = -1;
+            for (int i = 0; i < array.Length; i++)
+            {
+                var current = array[i].Modulus;
+                if (current > max)
+                {
+                    max = current;
+                    index = i;
+                }
+            }
+            return index == -1 ? null : array[index];
         }
 
         /// <summary>
