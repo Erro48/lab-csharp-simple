@@ -28,14 +28,39 @@ namespace Calculus
         public const char OperationPlus = '+';
         public const char OperationMinus = '-';
 
-        private Complex total;
+        private Complex _total;
+        private Complex _value;
+        private char? _operation;
 
-        public Complex Value { get; set; }
+        /*
+        total:  -1 + i
+        value:  2
+        op:     -
+         
+         */
+
+        public Complex Value
+        {
+            get => _value;
+            set
+            {
+                _value = value;
+                if (Operation == null || value == null)
+                {
+                    _total = _value;
+                }
+                else
+                {
+                    _total = Operation == OperationPlus ? _total.Plus(_value) : _total.Minus(_value);
+                }
+            }
+        }
         public char? Operation
         {
-            get => Operation;
-            set => {
-                total = Value;
+            get => _operation;
+            set {
+                _operation = value;
+                _value = null;
             }
         }
 
@@ -48,11 +73,14 @@ namespace Calculus
 
         public Complex ComputeResult()
         {
-            return null;
+            _value = _total;
+            _operation = null;
+            return _total;
         }
         public void Reset()
         {
-            
+            Value = null;
+            Operation = null;
         }
 
         public string ToString()
