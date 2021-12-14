@@ -49,7 +49,7 @@ namespace Calculus
             
             Console.WriteLine(calc.ToString()); // -1 + i, null
             
-            Console.WriteLine(calc.Value); // -1 + i
+            Console.WriteLine(calc.Value.ToString()); // -1 + i
             
             calc.Reset();
             
